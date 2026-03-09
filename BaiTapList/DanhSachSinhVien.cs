@@ -69,3 +69,42 @@ namespace BaiTapList
             Console.WriteLine($"   ➤ Lớn tuổi nhất: {svMaxTuoi.HoTen} - {svMaxTuoi.Tuoi} tuổi");
             Console.WriteLine($"   ➤ Nhỏ tuổi nhất: {svMinTuoi.HoTen} - {svMinTuoi.Tuoi} tuổi\n");
         }
+        public void KiemTraKhoCongNgheSo()
+        {
+            const string tenKhoa = "Công Nghệ Số";
+            var dsCNS = _danhSach.Where(sv => sv.Khoa == tenKhoa).ToList();
+
+            Console.WriteLine($"🔍 [2] SINH VIÊN KHOA {tenKhoa.ToUpper()}:");
+            if (dsCNS.Count == 0)
+            {
+                Console.WriteLine($"   ❌ Không có sinh viên nào thuộc khoa {tenKhoa}.");
+            }
+            else
+            {
+                Console.WriteLine($"   ✅ Có {dsCNS.Count} sinh viên thuộc khoa {tenKhoa}:");
+                foreach (var sv in dsCNS)
+                    Console.WriteLine($"   {sv}");
+            }
+            Console.WriteLine();
+        }
+        public void Top10DiemCaoNhatTheoKhoa(string tenKhoa = "Công Nghệ Số")
+        {
+            var top10 = _danhSach
+                .Where(sv => sv.Khoa == tenKhoa)
+                .OrderByDescending(sv => sv.DiemTrungBinh)
+                .Take(10)
+                .ToList();
+
+            Console.WriteLine($"🏆 [3] TOP 10 SINH VIÊN ĐIỂM CAO NHẤT - KHOA {tenKhoa.ToUpper()}:");
+            if (top10.Count == 0)
+            {
+                Console.WriteLine($"   ❌ Không có sinh viên nào thuộc khoa {tenKhoa}.");
+            }
+            else
+            {
+                int rank = 1;
+                foreach (var sv in top10)
+                    Console.WriteLine($"   #{rank++,2}. {sv}");
+            }
+            Console.WriteLine();
+        }

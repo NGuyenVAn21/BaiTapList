@@ -27,5 +27,8 @@ class Program
         ds.KiemTraKhoCongNgheSo();
 
 
+        // 3. Lấy 10 sinh viên điểm cao nhất khoa Công Nghệ Số
+        ds.Top10DiemCaoNhatTheoKhoa("Công Nghệ Số");
+
     }
 }
