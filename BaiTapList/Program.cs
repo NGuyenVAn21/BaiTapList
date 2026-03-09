@@ -16,6 +16,16 @@ class Program
         // Hiển thị toàn bộ danh sách
         ds.HienThi();
         Console.WriteLine();
+        // Hiển thị toàn bộ danh sách
+        ds.HienThi();
+        Console.WriteLine();
+
+        // 1. Max tuổi, min tuổi
+        ds.TimMaxMinTuoi();
+
+        // 2. Kiểm tra có sinh viên thuộc khoa Công Nghệ Số
+        ds.KiemTraKhoCongNgheSo();
+
 
     }
 }
