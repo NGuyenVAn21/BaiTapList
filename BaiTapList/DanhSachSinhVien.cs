@@ -38,3 +38,34 @@ namespace BaiTapList
 
             Console.WriteLine($"✅ Đã khởi tạo {soLuong} sinh viên ngẫu nhiên.\n");
         }
+        public void HienThi()
+        {
+            Console.WriteLine($"📋 DANH SÁCH SINH VIÊN ({_danhSach.Count} người):");
+            Console.WriteLine(new string('-', 80));
+            foreach (var sv in _danhSach)
+                Console.WriteLine(sv);
+            Console.WriteLine(new string('-', 80));
+        }
+
+        // ===== 1. MAX TUỔI, MIN TUỔI =====
+        public void TimMaxMinTuoi()
+        {
+            if (_danhSach.Count == 0)
+            {
+                Console.WriteLine("⚠️ Danh sách trống!");
+                return;
+            }
+
+            SinhVien svMaxTuoi = _danhSach[0];
+            SinhVien svMinTuoi = _danhSach[0];
+
+            foreach (var sv in _danhSach)
+            {
+                if (sv.Tuoi > svMaxTuoi.Tuoi) svMaxTuoi = sv;
+                if (sv.Tuoi < svMinTuoi.Tuoi) svMinTuoi = sv;
+            }
+
+            Console.WriteLine("🎂 [1] MAX & MIN TUỔI:");
+            Console.WriteLine($"   ➤ Lớn tuổi nhất: {svMaxTuoi.HoTen} - {svMaxTuoi.Tuoi} tuổi");
+            Console.WriteLine($"   ➤ Nhỏ tuổi nhất: {svMinTuoi.HoTen} - {svMinTuoi.Tuoi} tuổi\n");
+        }
