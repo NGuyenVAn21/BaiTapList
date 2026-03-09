@@ -30,5 +30,11 @@ class Program
         // 3. Lấy 10 sinh viên điểm cao nhất khoa Công Nghệ Số
         ds.Top10DiemCaoNhatTheoKhoa("Công Nghệ Số");
 
+        // 4. Bỏ qua sinh viên năm cuối, lấy danh sách hiển thị
+        ds.DanhSachBoNamCuoi();
+
+        Console.WriteLine("✔️  Chương trình kết thúc. Nhấn Enter để thoát...");
+        Console.ReadLine();
+
     }
 }

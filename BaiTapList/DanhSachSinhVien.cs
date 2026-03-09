@@ -108,3 +108,16 @@ namespace BaiTapList
             }
             Console.WriteLine();
         }
+        public void DanhSachBoNamCuoi()
+        {
+            var ds = _danhSach.Where(sv => sv.NamHoc != 4).ToList();
+
+            Console.WriteLine($"📄 [4] DANH SÁCH SINH VIÊN (BỎ QUA NĂM CUỐI - NĂM 4):");
+            Console.WriteLine($"   Tổng: {ds.Count} sinh viên (đã bỏ {_danhSach.Count - ds.Count} sinh viên năm 4)");
+            Console.WriteLine(new string('-', 80));
+            foreach (var sv in ds)
+                Console.WriteLine($"   {sv}");
+            Console.WriteLine(new string('-', 80) + "\n");
+        }
+    }
+}
